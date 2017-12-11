@@ -1,0 +1,48 @@
+#include <ArduinoJson.h>
+
+
+int const JSON_BUFFER = 1000;
+bool received         = false;
+char inData[JSON_BUFFER];
+float temp;
+
+
+void getCommand(){
+  if(Serial.available()>0){
+    int i = 0;
+    while(Serial.available()>0){
+       inData[i] =  Serial.read();
+       i++;
+    }
+    received = true;
+  }
+}
+
+void parseCommand(){
+	if(received ==true){
+	   processCommand();
+	}
+}
+
+void processCommand(){
+  if (strcmp(topic, "value") == 0){
+      Serial.print("{'topic':'ACK','payload':{'temp':'");
+	  Serial.print(temp);
+	  Serial.println("'}}");
+  }
+  else if(strcmp(topic, "temp") == 0){
+
+  }
+}
+
+void serValue(){
+	//read the sensor and set global variable
+    temp = 13.5;
+}
+
+
+loop(){
+	getCommand();
+	parseCommand();
+	setValue();
+}

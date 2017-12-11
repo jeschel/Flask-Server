@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temp Demo</title>
+	<script
+              src="https://code.jquery.com/jquery-3.2.1.min.js"
+              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous"></script>
+	<script type="text/javascript">
+     var myvar = setInterval(function(){
+        $.getJSON('/temp', function(data){
+          $("#temp").html(data.temp);
+          console.log(data);
+        })}, 1000);   
+    </script>
+<link rel="icon" type="image/ico" href="/static/My"
+</head>
+<body>
+<h1><center><font color="Black">XReality Demo</font></center></h1>
+  <h2> <font color="Black" >Temperature </font></h2>
+   <h3 id="temp"><font color="Black" >demo</font> </h3>
+   <span style="float:left;">
+      <form action = "/H">
+          <B><font color = "Black"> LED</B> <input type = "submit" class = "ON" value="ON" >
+      </form>
+  </span>
+   <span style="float:center;">
+    <form action = "/L">
+      <input type ="submit" class = "OFF" value="OFF">
+    </form>
+  </span>
+
+</body>
+</html>

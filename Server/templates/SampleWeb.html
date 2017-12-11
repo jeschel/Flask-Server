@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temp Demo</title>
+	<script
+              src="https://code.jquery.com/jquery-3.2.1.min.js"
+              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous"></script>
+	<script type="text/javascript">
+     var myvar = setInterval(function(){
+        $.getJSON('/temp', function(data){
+          $("#temp").html(data.temp);
+          console.log(data);
+        })}, 1000);   
+    </script>
+</head>
+<body>
+   <h1 id="temp">demo</h1>
+</body>
+</html>
